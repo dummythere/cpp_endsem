@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+template <typename T1, typename T2>
+class Pair {
+private:
+    T1 first;
+    T2 second;
+
+public:
+    Pair(const T1& firstValue, const T2& secondValue)
+        : first(firstValue), second(secondValue) {}
+
+    void setFirst(const T1& value) {
+        first = value;
+    }
+
+    void setSecond(const T2& value) {
+        second = value;
+    }
+
+    T1 getFirst() const {
+        return first;
+    }
+
+    T2 getSecond() const {
+        return second;
+    }
+};
+
+int main() {
+    Pair<int, std::string> pair1(10, "Hello");
+    Pair<double, char> pair2(3.14, 'A');
+
+    std::cout << "Pair 1: " << pair1.getFirst() << ", " << pair1.getSecond() << std::endl;
+    std::cout << "Pair 2: " << pair2.getFirst() << ", " << pair2.getSecond() << std::endl;
+
+    pair1.setFirst(20);
+    pair1.setSecond("World");
+
+    std::cout << "Pair 1 (updated): " << pair1.getFirst() << ", " << pair1.getSecond() << std::endl;
+
+    return 0;
+}
